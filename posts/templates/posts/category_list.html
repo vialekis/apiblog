@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<title>Список категорий</title>
+<!--<style>-->
+	<!--body{-->
+		<!--margin:1em auto;-->
+		<!--max-width:40em;-->
+		<!--padding:0 .62em;-->
+		<!--font:1.2em/1.62 sans-serif;-->
+	<!--}-->
+	<!--h1,h2 {-->
+		<!--line-height:1.2;-->
+	<!--}-->
+<!--</style>-->
+<article>
+	<p>
+		</p><h1>Список всех категорий.</h1>
+	</header>
+    {% for pub in categories %}
+        <p>
+            "{{ pub.title }}"
+            <a class="api-category" href="{% url 'api_categorypost_list' pub.slug %}"><FONT SIZE="-1">API</font></a>
+        </p>
+
+    {% empty %}
+        <h2>Категорий нет</h2>
+        <p>Чтобы добавить что-то в список, зайдите в админку и добавьте их оттуда.</p>
+    {% endfor %}
+</article>
+<br>
+
+<a class="all-api" href="{% url 'api_category_list' %}">API всех категорий</a>

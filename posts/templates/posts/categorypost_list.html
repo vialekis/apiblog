@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<!--<title>Список публикаций  в категории {{category}} </title>-->
+<title>Список публикаций  в категории </title>
+<!--<style>-->
+	<!--body{-->
+		<!--margin:1em auto;-->
+		<!--max-width:40em;-->
+		<!--padding:0 .62em;-->
+		<!--font:1.2em/1.62 sans-serif;-->
+	<!--}-->
+	<!--h1,h2 {-->
+		<!--line-height:1.2;-->
+	<!--}-->
+   <!--aside {-->
+    <!--background: #f0f0f0;-->
+    <!--padding: 10px;-->
+    <!--width: 200px;-->
+    <!--float: right;-->
+   <!--}-->
+
+<!--</style>-->
+<article>
+	<header>
+		<h1>Список всех публикаций в категории.</h1>
+        <!--<h1>Список всех публикаций в категории {{category}}.</h1>-->
+
+	</header>
+    {% for pub in posts %}
+        <aside> {{ pub.category}}</aside>
+        <h2>{{ pub.title }}</h2>
+        <p>
+            Публикация {{ pub.author }} от {{ pub.when_published }}
+        </p>
+        {{ pub.body|truncatewords:10|linebreaks }}
+
+    {% empty %}
+        <h2>Публикаций нет</h2>
+        <p>Чтобы добавить что-то в список, зайдите в админку и добавьте их оттуда.</p>
+    {% endfor %}
+</article>

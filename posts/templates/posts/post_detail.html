@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+     {% load static%}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<title>Список публикаций</title>
+<!--<style>-->
+	<!--body{-->
+		<!--margin:1em auto;-->
+		<!--max-width:40em;-->
+		<!--padding:0 .62em;-->
+		<!--font:1.2em/1.62 sans-serif;-->
+	<!--}-->
+	<!--h1,h2 {-->
+		<!--line-height:1.2;-->
+	<!--}-->
+   <!--aside {-->
+    <!--background: #f0f0f0;-->
+    <!--padding: 10px;-->
+    <!--width: 200px;-->
+    <!--float: right;-->
+   <!--}-->
+
+<!--</style>-->
+<article>
+	<h6>{{ post.category }}</h6>
+    <h2>{{ post.title }}</h2>
+    <aside> <a class="all-api" href="{% url 'api_post_detail' post.id %}">API публикации</a> </aside>
+        <p>
+            Публикация {{ post.author }} от {{ post.when_published }}
+        </p>
+        {{ post.body }}
+
+</article>
