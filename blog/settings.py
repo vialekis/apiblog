@@ -24,9 +24,9 @@ SECRET_KEY = 'a9l@s+fu2^wh18d#*18_)j!k=87hxko)=(bb_j7^8^u@tuv(iu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
+# heroku
+ALLOWED_HOSTS = ['shielded-coast-75639.herokuapp.com','localhost','127.0.0.1']
+# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -122,3 +122,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static"),]
+django_heroku.settings(locals())
